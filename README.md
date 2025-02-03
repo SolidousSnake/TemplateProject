@@ -9,5 +9,6 @@
 
 Composition root:
 ```Assets/_Project/Code/Runtime/Core/DiContainer/RootDiContainer.cs```
+
 Bootstrapper location:
 ```Assets/_Project/Code/Runtime/Core/Bootstrapper/BootSceneBootstrapper.cs```
