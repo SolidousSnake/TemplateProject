@@ -7,5 +7,7 @@
 4. TextMesh Pro
 5. NewtonsoftJSON
 
-Composition root: ```Assets/_Project/Code/Runtime/Core/DiContainer/RootDiContainer.cs```
-Bootstrapper location: ```Assets/_Project/Code/Runtime/Core/Bootstrapper/BootSceneBootstrapper.cs```
+Composition root:
+```Assets/_Project/Code/Runtime/Core/DiContainer/RootDiContainer.cs```
+Bootstrapper location:
+```Assets/_Project/Code/Runtime/Core/Bootstrapper/BootSceneBootstrapper.cs```
