@@ -1,15 +1,16 @@
 ﻿using System;
 using _Project.Code.Runtime.Data.Config;
+using _Project.Code.Runtime.UI.Appearance;
 using _Project.Code.Runtime.UI.UIButton;
-using _Project.Code.Runtime.UI.View.States.Lobby.Behaviour;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Code.Runtime.UI.View.States.Lobby
 {
-    [RequireComponent(typeof(BaseStateViewBehaviour))]
+    [RequireComponent(typeof(BaseViewAppearance))]
     public class SelectLevelStateView : MonoBehaviour
     {
-        [SerializeField] private BaseStateViewBehaviour _behaviour;
+        [FormerlySerializedAs("_behaviour")] [SerializeField] private BaseViewAppearance _appearance;
         [SerializeField] private RectTransform _buttonParent;
 
         public event Action<LevelConfig> LevelSelected;
@@ -26,7 +27,7 @@ namespace _Project.Code.Runtime.UI.View.States.Lobby
 
         private void SelectLevel(LevelConfig level) => LevelSelected?.Invoke(level);
 
-        public void Open() => _behaviour.Open();
-        public void Close() => _behaviour.Close();
+        public void Open() => _appearance.Open();
+        public void Close() => _appearance.Close();
     }
 }

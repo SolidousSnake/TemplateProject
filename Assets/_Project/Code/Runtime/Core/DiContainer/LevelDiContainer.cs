@@ -13,6 +13,8 @@ namespace _Project.Code.Runtime.Core.DiContainer
         [Header("View")]
         [SerializeField] private PlayingStateView _playingStateView;
         [SerializeField] private PauseStateView _pauseStateView;
+        [SerializeField] private FailureStateView _failureStateView;
+        [SerializeField] private VictoryStateView _victoryStateView;
         
         protected override void AddDependencies(IContainerBuilder builder)
         {
@@ -26,6 +28,8 @@ namespace _Project.Code.Runtime.Core.DiContainer
         {
             builder.RegisterInstance(_playingStateView);
             builder.RegisterInstance(_pauseStateView);
+            builder.RegisterInstance(_failureStateView);
+            builder.RegisterInstance(_victoryStateView);
         }
     }
 }

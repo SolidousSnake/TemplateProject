@@ -16,10 +16,10 @@ namespace _Project.Code.Runtime.Flow.Gameplay.States
 
         public void Enter()
         {
-            _stateView.gameObject.SetActive(true);
+            _stateView.Open();
             Time.timeScale = Constants.Time.ResumedValue;
         }
 
-        public void Exit() => _stateView.gameObject.SetActive(false);
+        public void Exit() => _stateView.Close();
     }
 }

@@ -31,12 +31,15 @@ namespace _Project.Code.Runtime.Core.Bootstrapper
             _saveLoadService.Save(progress);
             
             CreateStates();
+            _fsm.Enter<PlayingState>();
         }
 
         private void CreateStates()
         {
             _fsm.RegisterState(_stateFactory.Create<PlayingState>());
             _fsm.RegisterState(_stateFactory.Create<PauseState>());
+            _fsm.RegisterState(_stateFactory.Create<FailureState>());
+            _fsm.RegisterState(_stateFactory.Create<VictoryState>());
         }
     }
 }

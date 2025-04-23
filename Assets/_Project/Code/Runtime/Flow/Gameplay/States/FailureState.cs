@@ -1,28 +1,24 @@
 ﻿using _Project.Code.Runtime.Core.StateMachine;
-using _Project.Code.Runtime.Core.Util;
 using _Project.Code.Runtime.UI.View.States.Level;
-using UnityEngine;
 
 namespace _Project.Code.Runtime.Flow.Gameplay.States
 {
-    public class PauseState : IState
+    public class FailureState : IState
     {
-        private readonly PauseStateView _stateView;
+        private readonly FailureStateView _stateView;
 
-        public PauseState(PauseStateView stateView)
+        public FailureState(FailureStateView stateView)
         {
             _stateView = stateView;
         }
 
         public void Enter()
         {
-            Time.timeScale = Constants.Time.PausedValue;
             _stateView.Open();
         }
 
         public void Exit()
         {
-            Time.timeScale = Constants.Time.ResumedValue;
             _stateView.Close();
         }
     }

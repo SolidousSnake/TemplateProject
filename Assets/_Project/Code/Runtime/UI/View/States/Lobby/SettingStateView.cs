@@ -1,14 +1,15 @@
-﻿using _Project.Code.Runtime.UI.View.States.Lobby.Behaviour;
+﻿using _Project.Code.Runtime.UI.Appearance;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Code.Runtime.UI.View.States.Lobby
 {
-    [RequireComponent(typeof(BaseStateViewBehaviour))]
+    [RequireComponent(typeof(BaseViewAppearance))]
     public class SettingStateView : MonoBehaviour
     {
-        [SerializeField] private BaseStateViewBehaviour _behaviour;
+        [FormerlySerializedAs("_behaviour")] [SerializeField] private BaseViewAppearance _appearance;
 
-        public void Open() => _behaviour.Open();
-        public void Close() => _behaviour.Close();
+        public void Open() => _appearance.Open();
+        public void Close() => _appearance.Close();
     }
 }
