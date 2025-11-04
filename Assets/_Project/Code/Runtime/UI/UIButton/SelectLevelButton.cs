@@ -2,23 +2,23 @@
 using _Project.Code.Runtime.Data.Config;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _Project.Code.Runtime.UI.UIButton
 {
-    [RequireComponent(typeof(Button))]
-    public class SelectLevelButton : MonoBehaviour
+    public class SelectLevelButton : BaseButton
     {
-        [SerializeField] private Button _button;
         [SerializeField] private TextMeshProUGUI _label;
-        
+
+        private LevelConfig _levelConfig;
         public event Action<LevelConfig> Pressed;
         
         public void Initialize(LevelConfig config, bool interactable)
         {
             _label.text = config.Name;
+            _levelConfig = config;
             _button.interactable = interactable;
-            _button.onClick.AddListener(() => Pressed?.Invoke(config));
         }
+
+        protected override void OnClick() => Pressed?.Invoke(_levelConfig);
     }
 }

@@ -9,6 +9,14 @@
         {
         }
 
+        public void ShowBanner()
+        {
+        }
+
+        public void HideBanner()
+        {
+        }
+
         public void ShowRewarded()
         {
         }

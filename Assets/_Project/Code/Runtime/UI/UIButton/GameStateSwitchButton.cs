@@ -4,6 +4,7 @@ using _Project.Code.Runtime.Flow.Lobby.States;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
+using UniRx;
 
 namespace _Project.Code.Runtime.UI.UIButton
 {
@@ -25,8 +26,8 @@ namespace _Project.Code.Runtime.UI.UIButton
         [Inject] private LobbyStateMachine _fsm;
 
         private void OnValidate() => _button ??= GetComponent<Button>();
-        private void OnEnable() => _button.onClick.AddListener(OnClick);
-        private void OnDisable() => _button.onClick.RemoveListener(OnClick);
+
+        private void Start() => _button.OnClickAsObservable().Subscribe(_ => OnClick()).AddTo(this);
 
         private void OnClick()
         {
@@ -36,7 +37,7 @@ namespace _Project.Code.Runtime.UI.UIButton
                 case TargetStates.SelectLevel: _fsm.Enter<SelectLevelState>(); break;
                 case TargetStates.Shop: _fsm.Enter<ShopState>(); break;
                 case TargetStates.Settings: _fsm.Enter<SettingState>(); break;
-                case TargetStates.Quit: _fsm.Enter<SettingState>(); break;
+                case TargetStates.Quit: _fsm.Enter<QuitGameState>(); break;
                 default: throw new ArgumentOutOfRangeException();
             }
         }
